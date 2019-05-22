@@ -12,4 +12,4 @@ https://api.niweera.gq/items/all
 
 ## Get TV Series resource by ID:
 
-https://api.niweera.gq/items/id/:id
+https://api.niweera.gq/items/id/{id}
