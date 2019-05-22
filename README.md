@@ -4,8 +4,8 @@ Implementation of NiweeraTVDB API version 1.0 with MongoDB, ExpressJS and Node.J
 
 ## Get all TV Series resources:
 
-https://api.niweera.gq/api/items/all
+https://api.niweera.gq/items/all
 
 ## Get TV Series resource by ID:
 
-https://api.niweera.gq/api/items/id/:id
+https://api.niweera.gq/items/id/:id

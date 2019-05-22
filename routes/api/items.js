@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 
 /*main routes includes
 
-GET api/items/all           GET all items
-GET api/items/length        GET the number of docs in collection
-GET api/items/id/:id        GET item by ID
-POST api/items/add          Create a new item
-POST api/items/id/:id/edit  Update an item by ID
+GET /items/           GET all items
+GET /items/length        GET the number of docs in collection
+GET /items/id/:id        GET item by ID
+POST /items/add          Create a new item
+POST /items/id/:id  Update an item by ID
 
 main routes includes*/
 
@@ -19,7 +19,7 @@ const validateRegisterInput = require("../../validation/register");
 // Load Item model
 const Item = require("../../models/Item");
 
-// @route   GET api/items/test
+// @route   GET /items/test
 // @desc    Tests items route
 // @access  Protected
 router.get(
@@ -28,7 +28,7 @@ router.get(
   (req, res) => res.json({ msg: "Items Works" })
 );
 
-// @route   POST api/items/add
+// @route   POST /items/add
 // @desc    Insert new item
 // @access  Prtected
 router.post(
@@ -86,7 +86,7 @@ router.post(
   }
 );
 
-// @route   GET api/items/id/:id
+// @route   GET /items/id/:id
 // @desc    Get items by ID for viewing
 // @access  Public
 
@@ -105,12 +105,12 @@ router.get("/id/:id", (req, res) => {
     .catch(err => res.status(404).json({ item: "No TV Series for this ID" }));
 });
 
-// @route   POST api/items/id/:id/edit
+// @route   POST /items/id/:id
 // @desc    POST items by ID for editing alias UPDATE
 // @access  Private
 
 router.post(
-  "/id/:id/edit",
+  "/id/:id",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
@@ -165,10 +165,10 @@ router.post(
   }
 );
 
-// @route   GET api/items/all
+// @route   GET /items
 // @desc    Get all items
 // @access  Public
-router.get("/all", (req, res) => {
+router.get("/", (req, res) => {
   const errors = {};
 
   Item.find()
@@ -186,7 +186,7 @@ router.get("/all", (req, res) => {
     );
 });
 
-// @route   GET api/items/length
+// @route   GET /items/length
 // @desc    Get the number of docs in the collection
 // @access  Public
 router.get("/length", (req, res) => {
