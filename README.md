@@ -14,15 +14,13 @@ https://api.niweera.gq/items
 
 https://api.niweera.gq/items/id/{id}
 
-Ex: <br>
-https://api.niweera.gq/items/id/5cdfb8cdcaa2ac0f20a71d36
+Ex: https://api.niweera.gq/items/id/5cdfb8cdcaa2ac0f20a71d36
 
 ## Get TV Series resources from world famous Trakt.tv API
 
 https://api.niweera.gq/tvapi/trakt/{tv_series_name}
 
-Ex: <br>
-https://api.niweera.gq/tvapi/trakt/game-of-thrones
+Ex: https://api.niweera.gq/tvapi/trakt/game-of-thrones
 
 ## Get all the TV Series resources from TVMaze API
 
@@ -31,3 +29,4 @@ https://api.niweera.gq/tvapi/tvmaze
 ### New features will be available on API v2 update:
 
 #### Full text search functionality
+#### Additional integration with other TVDB APIs
