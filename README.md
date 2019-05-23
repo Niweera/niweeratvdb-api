@@ -28,5 +28,5 @@ https://api.niweera.gq/tvapi/tvmaze
 
 ### New features will be available on API v2 update:
 
-#### Full text search functionality
-#### Additional integration with other TVDB APIs
+1. Full text search functionality <br>
+2. Additional integration with other TVDB APIs
