@@ -38,7 +38,7 @@ const fourNaughtFour = {
   message: "Not Found",
   all_endpoints_url: "https://api.niweera.gq"
 };
-router.get("*", function(req, res) {
+router.get("*", function (req, res) {
   res.status(404).json(fourNaughtFour);
 });
 

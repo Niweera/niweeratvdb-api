@@ -6,7 +6,9 @@ const path = require("path");
 
 const items = require("./routes/api/items");
 const users = require("./routes/api/users");
+const tvapi = require("./routes/api/tvapi");
 const endpoints = require("./routes/api/endpoints");
+
 
 const app = express();
 
@@ -32,6 +34,7 @@ require("./config/passport")(passport);
 // Use Routes
 app.use("/items", items);
 app.use("/users", users);
+app.use("/tvapi", tvapi);
 app.use("/", endpoints); //this route must be at the end
 
 // Serve static assets if in production
