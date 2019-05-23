@@ -14,7 +14,7 @@ https://api.niweera.gq/items
 
 https://api.niweera.gq/items/id/{id}
 
-## Get TV Series resources from world famouse Trakt.tv API
+## Get TV Series resources from world famous Trakt.tv API
 
 https://api.niweera.gq/tvapi/trakt/{tv_series_name}
 
