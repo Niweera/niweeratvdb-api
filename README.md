@@ -14,6 +14,14 @@ https://api.niweera.gq/items
 
 https://api.niweera.gq/items/id/{id}
 
+## Get TV Series resources from world famouse Trakt.tv API
+
+https://api.niweera.gq/tvapi/trakt/{tv_series_name}
+
+## Get all the TV Series resources from TVMaze API
+
+https://api.niweera.gq/tvapi/tvmaze
+
 ### New features will be available on API v2 update:
 
 #### Full text search functionality
