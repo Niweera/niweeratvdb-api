@@ -206,4 +206,15 @@ router.get("/length", (req, res) => {
     );
 });
 
+// @route   GET /*
+// @desc    Return 404 for all unidentified routes
+// @access  Public
+const fourNaughtFour = {
+  message: "Not Found",
+  all_endpoints_url: "https://api.niweera.gq"
+};
+router.get("*", function(req, res) {
+  res.status(404).json(fourNaughtFour);
+});
+
 module.exports = router;

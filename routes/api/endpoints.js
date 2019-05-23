@@ -1,12 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const keys = require("../../config/keys");
-const passport = require("passport");
 
 // Load User model
 const Endpoint = require("../../models/Endpoint");
+
+let endPoint = {};
 
 // @route   GET /
 // @desc    Get all endpoints
@@ -20,14 +18,28 @@ router.get("/", (req, res) => {
         errors.noendpoint = "There are no Endpoints in the Database";
         return res.status(404).json(errors);
       }
-
-      res.json(endpoint);
+      endpoint.forEach(myFunction);
+      function myFunction(item, index) {
+        endPoint[item.name] = item.url;
+      }
+      res.json(endPoint);
     })
     .catch(err =>
       res
         .status(404)
         .json({ endpoint: "There are no Endpoints in the Database" })
     );
+});
+
+// @route   GET /*
+// @desc    Return 404 for all unidentified routes
+// @access  Public
+const fourNaughtFour = {
+  message: "Not Found",
+  all_endpoints_url: "https://api.niweera.gq"
+};
+router.get("*", function(req, res) {
+  res.status(404).json(fourNaughtFour);
 });
 
 module.exports = router;

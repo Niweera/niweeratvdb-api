@@ -1,25 +1,25 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
-const passport = require('passport');
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const keys = require("../../config/keys");
+const passport = require("passport");
 
 // Load Input Validation
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const validateRegisterInput = require("../../validation/register");
+const validateLoginInput = require("../../validation/login");
 
 // Load User model
-const User = require('../../models/User');
+const User = require("../../models/User");
 
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
-router.get('/test', (req, res) => res.json({ msg: 'Users Works' }));
+router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 
 // @route   GET api/users/register this route will be disabled since no need for further registration
 // @desc    Register user
-// @access  Public 
+// @access  Public
 // router.post('/register', passport.authenticate('jwt', { session: false }), (req, res) => {
 //   const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -57,7 +57,7 @@ router.get('/test', (req, res) => res.json({ msg: 'Users Works' }));
 // @route   GET api/users/login
 // @desc    Login User / Returning JWT Token
 // @access  Public
-router.post('/login', (req, res) => {
+router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
   // Check Validation
@@ -72,7 +72,7 @@ router.post('/login', (req, res) => {
   User.findOne({ email }).then(user => {
     // Check for user
     if (!user) {
-      errors.email = 'User not found';
+      errors.email = "User not found";
       return res.status(404).json(errors);
     }
 
@@ -90,12 +90,12 @@ router.post('/login', (req, res) => {
           (err, token) => {
             res.json({
               success: true,
-              token: 'Bearer ' + token
+              token: "Bearer " + token
             });
           }
         );
       } else {
-        errors.password = 'Password incorrect';
+        errors.password = "Password incorrect";
         return res.status(400).json(errors);
       }
     });
@@ -106,8 +106,8 @@ router.post('/login', (req, res) => {
 // @desc    Return current user
 // @access  Private
 router.get(
-  '/current',
-  passport.authenticate('jwt', { session: false }),
+  "/current",
+  passport.authenticate("jwt", { session: false }),
   (req, res) => {
     res.json({
       id: req.user.id,
@@ -116,5 +116,16 @@ router.get(
     });
   }
 );
+
+// @route   GET /*
+// @desc    Return 404 for all unidentified routes
+// @access  Public
+const fourNaughtFour = {
+  message: "Not Found",
+  all_endpoints_url: "https://api.niweera.gq"
+};
+router.get("*", function(req, res) {
+  res.status(404).json(fourNaughtFour);
+});
 
 module.exports = router;
