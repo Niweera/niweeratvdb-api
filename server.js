@@ -32,7 +32,7 @@ require("./config/passport")(passport);
 // Use Routes
 app.use("/items", items);
 app.use("/users", users);
-app.use("/", endpoints);
+app.use("/", endpoints); //this route must be at the end
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === "production") {

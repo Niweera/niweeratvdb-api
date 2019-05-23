@@ -1,7 +1,7 @@
 {
-  "name": "merntvdb",
+  "name": "niweeratvdb-api",
   "version": "1.0.0",
-  "description": "Niweera TVDB implementation using MERN stack.",
+  "description": "Niweera TVDB API.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
