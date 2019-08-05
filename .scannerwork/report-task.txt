@@ -1,0 +1,7 @@
+organization=niweera-github
+projectKey=niweeratvdb-api
+serverUrl=https://sonarcloud.io
+serverVersion=7.8.0.25269
+dashboardUrl=https://sonarcloud.io/dashboard?id=niweeratvdb-api
+ceTaskId=AWsWYoGEEKlamx8hMOGM
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWsWYoGEEKlamx8hMOGM
