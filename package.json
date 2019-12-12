@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "Nipuna Weerasekara",
   "license": "MIT",
@@ -19,9 +21,11 @@
     "node-fetch": "^2.6.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
-    "validator": "^10.11.0"
+    "validator": "^10.11.0",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.0"
-  }
+  },
+  "snyk": true
 }
